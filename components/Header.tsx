@@ -85,14 +85,14 @@ export default function Header() {
 
           {/* Middle: Logo */}
           <motion.div
-            className="absolute left-[calc(50%-2rem)] flex items-center"
+            className="absolute left-1/2 -translate-x-1/2 md:left-[calc(50%-3.5rem)] md:translate-x-0 flex items-center z-10"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={mounted ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <Link href="/" className="flex items-center justify-center group cursor-pointer">
               <motion.div
-                className="relative h-28 w-auto"
+                className="relative h-12 w-auto sm:h-16 md:h-28"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 17 }}
               >
@@ -101,7 +101,7 @@ export default function Header() {
                   alt="Zyro Solutions Logo"
                   width={280}
                   height={112}
-                  className="object-contain h-28 w-auto"
+                  className="object-contain h-12 w-auto sm:h-16 md:h-28"
                   priority
                 />
               </motion.div>
@@ -109,7 +109,7 @@ export default function Header() {
           </motion.div>
 
           {/* Right: CTA Button */}
-          <div className="flex-1 flex justify-end">
+          <div className="flex-1 flex justify-end z-20">
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={mounted ? { opacity: 1, x: 0 } : {}}
@@ -122,9 +122,10 @@ export default function Header() {
             >
               <Link
                 href="/demo"
-                className="inline-flex rounded-full text-center group items-center justify-center bg-white text-black border-input border-[1px] hover:bg-gray-100 transition-all py-2 px-5 text-sm font-semibold shadow-lg"
+                className="inline-flex rounded-full text-center group items-center justify-center bg-white text-black border-input border-[1px] hover:bg-gray-100 transition-all py-1.5 px-2.5 sm:py-2 sm:px-3 md:py-2 md:px-5 text-[10px] sm:text-xs md:text-sm font-semibold shadow-lg whitespace-nowrap"
               >
-                Book a free demo call
+                <span className="hidden sm:inline">Book a free demo call</span>
+                <span className="sm:hidden">Book Demo</span>
               </Link>
             </motion.span>
             </motion.div>
