@@ -85,14 +85,14 @@ export default function Header() {
 
           {/* Middle: Logo */}
           <motion.div
-            className="absolute left-1/2 -translate-x-1/2 md:left-[calc(50%-3.5rem)] md:translate-x-0 flex items-center z-10"
+            className="flex items-center z-10 md:absolute md:left-[calc(50%-3.5rem)] md:translate-x-0"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={mounted ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <Link href="/" className="flex items-center justify-center group cursor-pointer">
               <motion.div
-                className="relative h-12 w-auto sm:h-16 md:h-28"
+                className="relative h-14 w-auto sm:h-16 md:h-28"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 17 }}
               >
@@ -101,7 +101,7 @@ export default function Header() {
                   alt="Zyro Solutions Logo"
                   width={280}
                   height={112}
-                  className="object-contain h-12 w-auto sm:h-16 md:h-28"
+                  className="object-contain h-14 w-auto sm:h-16 md:h-28"
                   priority
                 />
               </motion.div>
