@@ -8,14 +8,10 @@ export default function BeforeAfter() {
   const isInView = useInView(ref, { once: true, margin: "-100px" })
   const beforeMetrics = [
     { label: 'Missed calls per week', value: '23', trend: 'down' },
-    { label: 'Average response time', value: '4.2 hrs', trend: 'down' },
-    { label: 'Appointments booked', value: '12', trend: 'down' },
   ]
 
   const afterMetrics = [
-    { label: 'Missed calls per week', value: '0', trend: 'up' },
-    { label: 'Response time', value: 'Instant', trend: 'up' },
-    { label: 'Appointments booked', value: '47', trend: 'up' },
+    { label: 'Booked appointments per week', value: '47', trend: 'up' },
   ]
 
   const containerVariants = {
@@ -53,7 +49,7 @@ export default function BeforeAfter() {
   }
 
   return (
-    <section className="section-padding bg-pink-50/30" ref={ref}>
+    <section className="section-padding" ref={ref} style={{ backgroundColor: '#000000' }}>
       <div className="container-custom">
         <motion.div
           className="text-center mb-16"
@@ -61,10 +57,10 @@ export default function BeforeAfter() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.80)_100%)] leading-tight pb-2" style={{ lineHeight: '1.1' }}>
             The difference is immediate
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl max-w-2xl mx-auto bg-clip-text text-transparent bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.60)_100%)]">
             See how businesses transform their customer communication
           </p>
         </motion.div>
@@ -77,8 +73,8 @@ export default function BeforeAfter() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="mb-6">
-              <h3 className="text-2xl font-semibold text-gray-600 mb-2">Before</h3>
-              <p className="text-gray-700">Missed calls, slow replies, lost revenue</p>
+              <h3 className="text-2xl font-semibold mb-2 bg-clip-text text-transparent bg-[linear-gradient(180deg,_rgba(255,_255,_255,_0.60)_0%,_rgba(156,_163,_175,_0.60)_100%)]">Before Zyro</h3>
+              <p className="bg-clip-text text-transparent bg-[linear-gradient(180deg,_rgba(255,_255,_255,_0.60)_0%,_rgba(156,_163,_175,_0.60)_100%)]">Missed calls, slow replies, lost revenue</p>
             </div>
             <motion.div
               className="space-y-4"
@@ -89,15 +85,16 @@ export default function BeforeAfter() {
               {beforeMetrics.map((metric, index) => (
                 <motion.div
                   key={index}
-                  className="card bg-white border-2 border-gray-100"
+                  className="card border-2"
                   variants={itemVariants}
                   whileHover={{ scale: 1.02, x: 5 }}
+                  style={{ backgroundColor: '#0A0A0A', borderColor: 'rgba(255, 255, 255, 0.1)', boxShadow: '0 0 15px rgba(99, 102, 241, 0.1)' }}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600">{metric.label}</span>
+                    <span className="bg-clip-text text-transparent bg-[linear-gradient(180deg,_rgba(255,_255,_255,_0.60)_0%,_rgba(156,_163,_175,_0.60)_100%)]">{metric.label}</span>
                     <div className="flex items-center gap-2">
                       <motion.span
-                        className="text-2xl font-bold text-gray-900"
+                        className="text-2xl font-bold bg-clip-text text-transparent bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.80)_100%)]"
                         initial={{ scale: 0 }}
                         animate={isInView ? { scale: 1 } : {}}
                         transition={{ delay: 0.5 + index * 0.1, type: "spring", stiffness: 200 }}
@@ -105,7 +102,8 @@ export default function BeforeAfter() {
                         {metric.value}
                       </motion.span>
                       <motion.svg
-                        className="w-5 h-5 text-red-500"
+                        className="w-5 h-5"
+                        style={{ color: '#F97316' }}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -128,8 +126,8 @@ export default function BeforeAfter() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="mb-6">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-2">After</h3>
-              <p className="text-gray-700">24/7 coverage, instant response, more bookings</p>
+              <h3 className="text-2xl font-semibold mb-2 bg-clip-text text-transparent bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.80)_100%)]">After Zyro</h3>
+              <p className="bg-clip-text text-transparent bg-[linear-gradient(180deg,_rgba(255,_255,_255,_0.60)_0%,_rgba(156,_163,_175,_0.60)_100%)]">24/7 coverage, instant response, more bookings</p>
             </div>
             <motion.div
               className="space-y-4"
@@ -140,16 +138,17 @@ export default function BeforeAfter() {
               {afterMetrics.map((metric, index) => (
                 <motion.div
                   key={index}
-                  className="card bg-white border-2 border-pink-200 bg-pink-50/30"
+                  className="card border-2"
                   variants={afterItemVariants}
                   whileHover={{ scale: 1.02, x: -5, y: -4 }}
                   transition={{ duration: 0.2 }}
+                  style={{ backgroundColor: '#0A0A0A', borderColor: 'rgba(255, 255, 255, 0.15)', background: 'linear-gradient(135deg, rgba(34, 211, 238, 0.15) 0%, rgba(99, 102, 241, 0.15) 100%)', boxShadow: '0 0 25px rgba(34, 211, 238, 0.2), 0 0 50px rgba(99, 102, 241, 0.15)' }}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600">{metric.label}</span>
+                    <span className="bg-clip-text text-transparent bg-[linear-gradient(180deg,_rgba(255,_255,_255,_0.60)_0%,_rgba(156,_163,_175,_0.60)_100%)]">{metric.label}</span>
                     <div className="flex items-center gap-2">
                       <motion.span
-                        className="text-2xl font-bold text-pink-600"
+                        className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#6366F1] to-[#22D3EE]"
                         initial={{ scale: 0 }}
                         animate={isInView ? { scale: 1 } : {}}
                         transition={{ delay: 0.5 + index * 0.1, type: "spring", stiffness: 200 }}
@@ -157,7 +156,8 @@ export default function BeforeAfter() {
                         {metric.value}
                       </motion.span>
                       <motion.svg
-                        className="w-5 h-5 text-pink-500"
+                        className="w-5 h-5"
+                        style={{ color: '#22D3EE' }}
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"

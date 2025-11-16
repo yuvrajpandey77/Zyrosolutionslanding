@@ -12,16 +12,14 @@ export default function Home() {
   return (
     <main className="min-h-screen overflow-x-hidden">
       <Header />
-      <div className="pt-20">
-        <Hero />
-        <Services />
-        <Features />
-        <BeforeAfter />
-        <Industries />
-        <Pricing />
-        <Testimonials />
-        <CTABanner />
-      </div>
+      <Hero />
+      <Services />
+      <Features />
+      <BeforeAfter />
+      <Industries />
+      <Pricing />
+      <Testimonials />
+      <CTABanner />
     </main>
   )
 }
