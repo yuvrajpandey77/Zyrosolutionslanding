@@ -61,7 +61,7 @@ export default function DemoPage() {
 
   return (
     <main className="min-h-screen relative overflow-hidden" style={{ backgroundColor: '#000000' }}>
-      <div className="absolute top-0 z-[0] h-screen w-screen bg-purple-950/10 dark:bg-purple-950/10 bg-[radial-gradient(ellipse_20%_80%_at_50%_-20%,rgba(120,119,198,0.15),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_20%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" />
+      <div className="absolute top-0 z-[0] h-screen w-screen bg-[radial-gradient(ellipse_20%_80%_at_50%_-20%,rgba(99,102,241,0.3),rgba(34,211,238,0.2),rgba(255,255,255,0))]" />
       <RetroGrid 
         angle={65}
         opacity={0.2}
@@ -362,26 +362,21 @@ export default function DemoPage() {
             <motion.button
               type="submit"
               disabled={isSubmitting}
-              className="relative inline-block overflow-hidden rounded-full p-[1.5px] w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed"
+              className="relative inline-block overflow-hidden rounded-full w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed bg-white text-black hover:bg-gray-100 transition-all py-4 px-10 font-semibold shadow-lg"
               whileHover={isSubmitting ? {} : { scale: 1.02 }}
               whileTap={isSubmitting ? {} : { scale: 0.98 }}
             >
-              <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-              <div className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-white/5 dark:bg-gray-950/50 text-xs font-medium backdrop-blur-3xl">
-                <span className="inline-flex rounded-full text-center group items-center w-full justify-center bg-gradient-to-tr from-zinc-300/20 via-purple-400/30 to-transparent dark:from-zinc-300/5 dark:via-purple-400/20 text-white border-input border-[1px] hover:bg-gradient-to-tr hover:from-zinc-300/30 hover:via-purple-400/40 hover:to-transparent dark:hover:from-zinc-300/10 dark:hover:via-purple-400/30 transition-all sm:w-auto py-4 px-10">
-                  {isSubmitting ? (
-                    <span className="flex items-center justify-center gap-2">
-                      <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                      </svg>
-                      Submitting...
-                    </span>
-                  ) : (
-                    'Submit & request demo'
-                  )}
+              {isSubmitting ? (
+                <span className="flex items-center justify-center gap-2">
+                  <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                  </svg>
+                  Submitting...
                 </span>
-              </div>
+              ) : (
+                'Submit & request demo'
+              )}
             </motion.button>
             <p className="mt-4 text-sm text-center text-gray-400 dark:text-gray-500">
               By submitting this form, you agree to be contacted by Zyro Solutions. We respect your privacy.

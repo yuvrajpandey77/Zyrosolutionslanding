@@ -3,7 +3,9 @@
 import * as React from "react"
 import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
-import { ChevronRight } from "lucide-react"
+import { SplineScene } from "@/components/ui/splite"
+import { Card } from "@/components/ui/card"
+import { Spotlight } from "@/components/ui/spotlight"
 
 interface HeroSectionProps extends React.HTMLAttributes<HTMLDivElement> {
   title?: string
@@ -111,7 +113,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
     return (
       <div className={cn("relative", className)} ref={ref} {...props}>
         <motion.div 
-          className="absolute top-0 z-[0] h-screen w-screen bg-purple-950/10 dark:bg-purple-950/10 bg-[radial-gradient(ellipse_20%_80%_at_50%_-20%,rgba(120,119,198,0.15),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_20%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+          className="absolute top-0 z-[0] h-screen w-screen bg-[radial-gradient(ellipse_20%_80%_at_50%_-20%,rgba(99,102,241,0.3),rgba(34,211,238,0.2),rgba(255,255,255,0))]"
           initial={{ opacity: 0 }}
           animate={mounted ? { opacity: 1 } : {}}
           transition={{ duration: 1.2, ease: "easeOut" }}
@@ -120,27 +122,17 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
           <RetroGrid {...gridOptions} />
           <div className="max-w-screen-xl z-10 mx-auto px-4 pt-20 pb-28 gap-12 md:px-8 flex flex-col items-center justify-center min-h-screen">
             <motion.div 
-              className="space-y-5 max-w-3xl mx-auto text-center"
+              className="space-y-6 max-w-3xl mx-auto text-center"
               variants={containerVariants}
               initial="hidden"
               animate={mounted ? "visible" : "hidden"}
             >
               <motion.h1 
-                className="text-sm text-gray-600 dark:text-gray-400 group font-geist mx-auto px-5 py-2 bg-gradient-to-tr from-zinc-300/20 via-gray-400/20 to-transparent dark:from-zinc-300/5 dark:via-gray-400/5 border-[2px] border-black/5 dark:border-white/5 rounded-3xl w-fit"
+                className="text-4xl tracking-tight font-geist bg-clip-text text-transparent mx-auto md:text-6xl px-4 whitespace-nowrap bg-[linear-gradient(180deg,_#000_0%,_rgba(0,_0,_0,_0.75)_100%)] dark:bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.00)_202.08%)]"
                 variants={itemVariants}
               >
                 {title}
-                <ChevronRight className="inline w-4 h-4 ml-2 group-hover:translate-x-1 duration-300" />
               </motion.h1>
-              <motion.h2 
-                className="text-4xl tracking-tighter font-geist bg-clip-text text-transparent mx-auto md:text-6xl bg-[linear-gradient(180deg,_#000_0%,_rgba(0,_0,_0,_0.75)_100%)] dark:bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.00)_202.08%)]"
-                variants={itemVariants}
-              >
-                {subtitle.regular}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500 dark:from-purple-300 dark:to-orange-200">
-                  {subtitle.gradient}
-                </span>
-              </motion.h2>
               <motion.p 
                 className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300"
                 variants={itemVariants}
@@ -148,45 +140,167 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
                 {description}
               </motion.p>
               <motion.div 
-                className="items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0"
+                className="flex items-center justify-center gap-6 flex-wrap max-w-4xl mx-auto"
                 variants={itemVariants}
               >
-                <span className="relative inline-block overflow-hidden rounded-full p-[1.5px]">
-                  <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-                  <div className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-white dark:bg-gray-950 text-xs font-medium backdrop-blur-3xl">
-                    <a
-                      href={ctaHref}
-                      className="inline-flex rounded-full text-center group items-center w-full justify-center bg-gradient-to-tr from-zinc-300/20 via-purple-400/30 to-transparent dark:from-zinc-300/5 dark:via-purple-400/20 text-gray-900 dark:text-white border-input border-[1px] hover:bg-gradient-to-tr hover:from-zinc-300/30 hover:via-purple-400/40 hover:to-transparent dark:hover:from-zinc-300/10 dark:hover:via-purple-400/30 transition-all sm:w-auto py-4 px-10"
-                    >
-                      {ctaText}
-                    </a>
-                  </div>
-                </span>
+                <span className="text-sm text-gray-400 dark:text-gray-400 whitespace-nowrap">24/7 AI receptionist — voice + SMS</span>
+                <span className="text-sm text-gray-400 dark:text-gray-400 whitespace-nowrap">No missed calls, no missed bookings</span>
+                <span className="text-sm text-gray-400 dark:text-gray-400 whitespace-nowrap">Integrates with your existing calendar</span>
+              </motion.div>
+              <motion.div 
+                className="flex items-center justify-center gap-4 flex-wrap"
+                variants={itemVariants}
+              >
+                {/* Primary Button - White */}
+                <a
+                  href={ctaHref}
+                  className="inline-flex items-center justify-center rounded-full bg-white text-black font-semibold px-10 py-4 hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl text-base min-w-[200px]"
+                >
+                  Book a demo
+                </a>
+                {/* Secondary Button - Transparent with white border */}
+                <a
+                  href={ctaHref}
+                  className="inline-flex items-center justify-center rounded-full bg-transparent text-white font-semibold px-10 py-4 border-2 border-white/50 hover:border-white hover:bg-white/10 transition-all duration-300 text-base min-w-[200px]"
+                >
+                  Watch demo
+                </a>
               </motion.div>
             </motion.div>
-            {bottomImage && (
-              <motion.div 
-                className="mt-32 mx-4 md:mx-10 relative z-10"
-                initial={{ opacity: 0, y: 50 }}
-                animate={mounted ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <div className="relative rounded-2xl overflow-hidden border border-white/10 dark:border-white/10 shadow-2xl bg-gradient-to-br from-white/5 to-white/0 backdrop-blur-sm">
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80 z-10 pointer-events-none" />
-                  <img
-                    src={bottomImage.light}
-                    className="w-full h-auto shadow-2xl rounded-lg border border-gray-200 dark:hidden object-cover"
-                    alt="AI Receptionist Dashboard Preview"
-                  />
-                  <img
-                    src={bottomImage.dark}
-                    className="hidden w-full h-auto shadow-2xl rounded-lg border border-gray-800 dark:block object-cover"
-                    alt="AI Receptionist Dashboard Preview"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background/60 z-20 pointer-events-none" />
-                </div>
-              </motion.div>
-            )}
+            {/* Comparison and 3D Bot Section */}
+            <motion.div 
+              className="mt-20 w-full max-w-7xl mx-auto px-4 md:px-8 relative z-10"
+              initial={{ opacity: 0, y: 50 }}
+              animate={mounted ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center border border-white/10 rounded-2xl p-6 lg:p-8 bg-black/20 backdrop-blur-sm">
+                {/* Left: Comparison Section */}
+                <motion.div
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={mounted ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.8, delay: 1 }}
+                  className="space-y-6"
+                >
+                  <div>
+                    <h3 className="text-2xl font-semibold mb-6 bg-clip-text text-transparent bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.80)_100%)]">
+                      Before vs After
+                    </h3>
+                  </div>
+                  
+                  {/* Side-by-side Comparison */}
+                  <div className="grid grid-cols-2 gap-4">
+                    {/* Before Column */}
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={mounted ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.6, delay: 1.2 }}
+                      className="space-y-4"
+                    >
+                      <div className="mb-4">
+                        <h4 className="text-base font-semibold mb-2 text-gray-400">Before Zyro</h4>
+                      </div>
+                      
+                      {/* Metric 1 */}
+                      <Card className="border border-white/10 rounded-xl p-4 bg-black/40 backdrop-blur-sm hover:border-white/20 transition-all">
+                        <div className="space-y-2">
+                          <span className="text-xs text-gray-500 block">Missed calls</span>
+                          <div className="flex items-baseline gap-2">
+                            <span className="text-2xl font-bold text-white">23</span>
+                            <span className="text-xs text-gray-500">/week</span>
+                          </div>
+                        </div>
+                      </Card>
+
+                      {/* Metric 2 */}
+                      <Card className="border border-white/10 rounded-xl p-4 bg-black/40 backdrop-blur-sm hover:border-white/20 transition-all">
+                        <div className="space-y-2">
+                          <span className="text-xs text-gray-500 block">Response time</span>
+                          <div className="flex items-baseline gap-2">
+                            <span className="text-2xl font-bold text-white">4.2</span>
+                            <span className="text-xs text-gray-500">hours</span>
+                          </div>
+                        </div>
+                      </Card>
+
+                      {/* Metric 3 */}
+                      <Card className="border border-white/10 rounded-xl p-4 bg-black/40 backdrop-blur-sm hover:border-white/20 transition-all">
+                        <div className="space-y-2">
+                          <span className="text-xs text-gray-500 block">Conversion rate</span>
+                          <div className="flex items-baseline gap-2">
+                            <span className="text-2xl font-bold text-white">12%</span>
+                          </div>
+                        </div>
+                      </Card>
+                    </motion.div>
+
+                    {/* After Column */}
+                    <motion.div
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={mounted ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.6, delay: 1.4 }}
+                      className="space-y-4"
+                    >
+                      <div className="mb-4">
+                        <h4 className="text-base font-semibold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-[#6366F1] to-[#22D3EE]">After Zyro</h4>
+                      </div>
+                      
+                      {/* Metric 1 */}
+                      <Card className="border border-[#22D3EE]/30 rounded-xl p-4 bg-gradient-to-br from-[#22D3EE]/10 via-[#6366F1]/10 to-transparent backdrop-blur-sm hover:border-[#22D3EE]/50 transition-all shadow-lg shadow-[#22D3EE]/10">
+                        <div className="space-y-2">
+                          <span className="text-xs text-gray-400 block">Booked appointments</span>
+                          <div className="flex items-baseline gap-2">
+                            <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#6366F1] to-[#22D3EE]">47</span>
+                            <span className="text-xs text-gray-400">/week</span>
+                          </div>
+                        </div>
+                      </Card>
+
+                      {/* Metric 2 */}
+                      <Card className="border border-[#22D3EE]/30 rounded-xl p-4 bg-gradient-to-br from-[#22D3EE]/10 via-[#6366F1]/10 to-transparent backdrop-blur-sm hover:border-[#22D3EE]/50 transition-all shadow-lg shadow-[#22D3EE]/10">
+                        <div className="space-y-2">
+                          <span className="text-xs text-gray-400 block">Response time</span>
+                          <div className="flex items-baseline gap-2">
+                            <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#6366F1] to-[#22D3EE]">&lt;30s</span>
+                          </div>
+                        </div>
+                      </Card>
+
+                      {/* Metric 3 */}
+                      <Card className="border border-[#22D3EE]/30 rounded-xl p-4 bg-gradient-to-br from-[#22D3EE]/10 via-[#6366F1]/10 to-transparent backdrop-blur-sm hover:border-[#22D3EE]/50 transition-all shadow-lg shadow-[#22D3EE]/10">
+                        <div className="space-y-2">
+                          <span className="text-xs text-gray-400 block">Conversion rate</span>
+                          <div className="flex items-baseline gap-2">
+                            <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#6366F1] to-[#22D3EE]">34%</span>
+                          </div>
+                        </div>
+                      </Card>
+                    </motion.div>
+                  </div>
+                </motion.div>
+
+                {/* Right: 3D Bot Animation */}
+                <motion.div
+                  initial={{ opacity: 0, x: 30 }}
+                  animate={mounted ? { opacity: 1, x: 0 } : {}}
+                  transition={{ duration: 0.8, delay: 1 }}
+                  className="relative"
+                >
+                  <Card className="w-full h-[500px] bg-black/[0.96] relative overflow-hidden border-0">
+                    <Spotlight
+                      className="-top-40 left-0 md:left-60 md:-top-20"
+                      fill="white"
+                    />
+                    <div className="relative h-full">
+                      <SplineScene 
+                        scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+                        className="w-full h-full"
+                      />
+                    </div>
+                  </Card>
+                </motion.div>
+              </div>
+            </motion.div>
           </div>
         </section>
       </div>

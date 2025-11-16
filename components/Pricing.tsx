@@ -97,7 +97,7 @@ export default function Pricing() {
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
-                  <span className="px-4 py-1.5 rounded-full text-sm font-medium shadow-lg" style={{ backgroundColor: '#6366F1', color: '#F9FAFB' }}>
+                  <span className="px-4 py-1.5 rounded-full text-sm font-medium shadow-lg" style={{ backgroundColor: '#F97316', color: '#F9FAFB' }}>
                     Most Popular
                   </span>
                 </div>
@@ -127,26 +127,20 @@ export default function Pricing() {
                 {plan.popular ? (
                   <a
                     href="/demo"
-                    className="relative inline-block overflow-hidden rounded-full p-[1.5px] w-full"
+                    className="relative inline-block overflow-hidden rounded-full w-full"
                   >
-                    <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-                    <div className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black text-xs font-medium backdrop-blur-3xl">
-                      <span className="inline-flex rounded-full text-center group items-center w-full justify-center bg-gradient-to-tr from-zinc-300/20 via-purple-400/30 to-transparent dark:from-zinc-300/5 dark:via-purple-400/20 text-white border-input border-[1px] hover:bg-gradient-to-tr hover:from-zinc-300/30 hover:via-purple-400/40 hover:to-transparent dark:hover:from-zinc-300/10 dark:hover:via-purple-400/30 transition-all py-3.5 px-10 font-semibold">
-                        Get Started
-                      </span>
-                    </div>
+                    <span className="inline-flex rounded-full text-center group items-center w-full justify-center bg-white text-black border-input border-[1px] hover:bg-gray-100 transition-all py-3.5 px-10 font-semibold shadow-lg">
+                      Get Started
+                    </span>
                   </a>
                 ) : (
                   <a
                     href="/demo"
-                    className="relative inline-block overflow-hidden rounded-full p-[1.5px] w-full"
+                    className="relative inline-block overflow-hidden rounded-full w-full"
                   >
-                    <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,rgba(99,102,241,0.3)_0%,rgba(34,211,238,0.3)_50%,rgba(99,102,241,0.3)_100%)]" />
-                    <div className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black text-xs font-medium backdrop-blur-3xl">
-                      <span className="inline-flex rounded-full text-center group items-center w-full justify-center bg-gradient-to-tr from-zinc-300/5 via-purple-400/10 to-transparent dark:from-zinc-300/5 dark:via-purple-400/10 text-white border border-white/10 hover:bg-gradient-to-tr hover:from-zinc-300/10 hover:via-purple-400/20 hover:to-transparent dark:hover:from-zinc-300/10 dark:hover:via-purple-400/20 transition-all py-3.5 px-10 font-semibold">
-                        Get Started
-                      </span>
-                    </div>
+                    <span className="inline-flex rounded-full text-center group items-center w-full justify-center bg-transparent text-white border border-white/30 hover:border-white hover:bg-white/10 transition-all py-3.5 px-10 font-semibold">
+                      Get Started
+                    </span>
                   </a>
                 )}
               </div>
