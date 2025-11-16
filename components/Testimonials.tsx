@@ -91,7 +91,7 @@ export default function Testimonials() {
               </motion.p>
               <div className="flex items-center gap-4">
                 <motion.div
-                  className="w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold bg-gradient-to-tr from-zinc-300/20 via-purple-400/30 to-transparent dark:from-zinc-300/5 dark:via-purple-400/20"
+                  className="w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold bg-gradient-to-r from-[#6366F1] to-[#22D3EE]"
                   initial={{ scale: 0 }}
                   animate={isInView ? { scale: 1 } : {}}
                   transition={{ delay: 0.4 + index * 0.15, type: "spring", stiffness: 200 }}

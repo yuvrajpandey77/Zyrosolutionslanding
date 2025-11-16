@@ -78,7 +78,7 @@ export default function Features() {
           <p className="text-xl max-w-2xl mx-auto mb-4 bg-clip-text text-transparent bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.60)_100%)]">
             Everything you need to transform your customer communication
           </p>
-          <p className="text-lg max-w-2xl mx-auto italic bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-500 dark:from-purple-300 dark:to-orange-200">
+          <p className="text-lg max-w-2xl mx-auto italic bg-clip-text text-transparent bg-gradient-to-r from-[#6366F1] to-[#22D3EE]">
             24/7 voice & SMS agents for service businesses.
           </p>
         </motion.div>

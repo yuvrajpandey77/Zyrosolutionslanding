@@ -13,7 +13,7 @@ export default function ThankYouPage() {
   }, [])
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen" style={{ backgroundColor: '#000000' }}>
       <Header />
       <div className="pt-20 section-padding flex items-center justify-center">
       <div className="container-custom max-w-2xl text-center">
@@ -22,6 +22,7 @@ export default function ThankYouPage() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={mounted ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.5, type: "spring", stiffness: 200 }}
+          style={{ backgroundColor: '#0A0A0A', borderColor: 'rgba(255, 255, 255, 0.1)' }}
         >
           <motion.div
             className="mb-6"
@@ -30,7 +31,7 @@ export default function ThankYouPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <motion.div
-              className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-primary flex items-center justify-center"
+              className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-r from-[#6366F1] to-[#22D3EE] flex items-center justify-center"
               initial={{ scale: 0, rotate: -180 }}
               animate={mounted ? { scale: 1, rotate: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.3, type: "spring", stiffness: 200 }}
@@ -47,13 +48,13 @@ export default function ThankYouPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </motion.svg>
             </motion.div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.80)_100%)]">
               Thank you!
             </h1>
-            <p className="text-xl text-gray-700 mb-2">
+            <p className="text-xl mb-2 bg-clip-text text-transparent bg-[linear-gradient(180deg,_rgba(255,_255,_255,_0.80)_0%,_rgba(156,_163,_175,_0.80)_100%)]">
               We've received your request for a demo call.
             </p>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg bg-clip-text text-transparent bg-[linear-gradient(180deg,_rgba(255,_255,_255,_0.60)_0%,_rgba(156,_163,_175,_0.60)_100%)]">
               Our team will contact you within 24 hours to schedule your free demo.
             </p>
           </motion.div>
