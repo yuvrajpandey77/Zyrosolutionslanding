@@ -179,7 +179,7 @@ const HeroSection = React.forwardRef<HTMLDivElement, HeroSectionProps>(
             </motion.div>
             {/* Comparison and 3D Bot Section */}
             <motion.div 
-              className="mt-6 sm:mt-4 md:mt-8 w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-8 relative z-10"
+              className="mt-0 sm:mt-0 md:mt-2 w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-8 relative z-10"
               initial={{ opacity: 0, y: 50 }}
               animate={mounted ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
