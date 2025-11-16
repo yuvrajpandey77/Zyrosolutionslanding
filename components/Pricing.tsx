@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
+import { Check } from 'lucide-react'
 
 export default function Pricing() {
   const ref = useRef(null)
@@ -10,30 +11,35 @@ export default function Pricing() {
   const plans = [
     {
       name: 'Starter',
-      price: '$299',
+      price: '$500',
       period: '/month',
-      description: 'Perfect for small businesses',
+      description: 'Setup + monthly retainer',
+      setupFee: 'One-time setup fee included',
       features: [
-        'Up to 500 calls/month',
-        'Basic call routing',
-        'Email notifications',
+        '24/7 AI phone receptionist',
+        'AI SMS follow-up',
         'Calendar integration',
+        'Basic call flows',
         'Email support',
+        'Up to 100 calls/month',
       ],
       popular: false,
     },
     {
       name: 'Professional',
-      price: '$599',
-      period: '/month',
-      description: 'For growing businesses',
+      price: 'Custom',
+      period: '',
+      description: 'Custom pricing based on your needs',
+      setupFee: 'Setup + monthly retainer',
       features: [
-        'Up to 2,000 calls/month',
-        'Advanced call flows',
-        'SMS notifications',
+        'Everything in Starter',
+        'Unlimited calls',
+        'Advanced call flows & scripting',
         'CRM integration',
+        'Google Sheets lead tracking',
         'Priority support',
-        'Custom branding',
+        'Custom integrations',
+        'Ongoing optimization',
       ],
       popular: true,
     },
@@ -41,21 +47,23 @@ export default function Pricing() {
       name: 'Enterprise',
       price: 'Custom',
       period: '',
-      description: 'For large organizations',
+      description: 'Tailored solutions for large teams',
+      setupFee: 'Custom setup + retainer',
       features: [
-        'Unlimited calls',
+        'Everything in Professional',
         'Dedicated account manager',
-        'Custom integrations',
         '24/7 phone support',
-        'Advanced analytics',
+        'Advanced analytics & reporting',
         'SLA guarantee',
+        'Multi-location support',
+        'Custom AI training',
       ],
       popular: false,
     },
   ]
 
   return (
-    <section className="section-padding bg-pink-50/20" ref={ref} id="pricing">
+    <section className="section-padding" ref={ref} id="pricing" style={{ backgroundColor: '#000000' }}>
       <div className="container-custom">
         <motion.div
           className="text-center mb-16"
@@ -63,10 +71,10 @@ export default function Pricing() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.80)_100%)] leading-tight pb-2" style={{ lineHeight: '1.1' }}>
             Simple, Transparent Pricing
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl max-w-2xl mx-auto bg-clip-text text-transparent bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.60)_100%)]">
             Choose the plan that fits your business needs
           </p>
         </motion.div>
@@ -75,46 +83,73 @@ export default function Pricing() {
           {plans.map((plan, index) => (
             <motion.div
               key={index}
-              className={`card relative ${plan.popular ? 'ring-2 ring-pink-500 scale-105' : ''}`}
+              className={`card relative flex flex-col ${plan.popular ? 'scale-105' : ''}`}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
+              style={{ 
+                backgroundColor: '#0A0A0A', 
+                borderColor: plan.popular ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.05)',
+                borderWidth: plan.popular ? '2px' : '1px',
+                boxShadow: plan.popular ? '0 0 30px rgba(99, 102, 241, 0.3), 0 0 60px rgba(34, 211, 238, 0.2)' : '0 0 20px rgba(99, 102, 241, 0.1)',
+                padding: '2rem'
+              }}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-pink-600 text-white px-4 py-1 rounded-full text-sm font-medium">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                  <span className="px-4 py-1.5 rounded-full text-sm font-medium shadow-lg" style={{ backgroundColor: '#6366F1', color: '#F9FAFB' }}>
                     Most Popular
                   </span>
                 </div>
               )}
-              <div className="text-center mb-8">
-                <h3 className="text-2xl font-bold mb-2 text-gray-900">{plan.name}</h3>
-                <p className="text-gray-600 mb-4">{plan.description}</p>
-                <div className="flex items-baseline justify-center gap-1">
-                  <span className="text-5xl font-bold text-gray-900">{plan.price}</span>
-                  <span className="text-gray-600">{plan.period}</span>
+              <div className="text-center mb-6">
+                <h3 className="text-2xl font-bold mb-2 bg-clip-text text-transparent bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.80)_100%)]">{plan.name}</h3>
+                <p className="mb-2 bg-clip-text text-transparent bg-[linear-gradient(180deg,_rgba(255,_255,_255,_0.60)_0%,_rgba(156,_163,_175,_0.60)_100%)]">{plan.description}</p>
+                {plan.setupFee && (
+                  <p className="text-sm mb-4 bg-clip-text text-transparent bg-[linear-gradient(180deg,_rgba(255,_255,_255,_0.50)_0%,_rgba(107,_114,_128,_0.50)_100%)]">{plan.setupFee}</p>
+                )}
+                <div className="flex items-baseline justify-center gap-1 mb-6">
+                  <span className="text-5xl font-bold bg-clip-text text-transparent bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.80)_100%)]">{plan.price}</span>
+                  <span className="bg-clip-text text-transparent bg-[linear-gradient(180deg,_rgba(255,_255,_255,_0.60)_0%,_rgba(156,_163,_175,_0.60)_100%)]">{plan.period}</span>
                 </div>
               </div>
-              <ul className="space-y-4 mb-8">
+              <ul className="space-y-3 mb-8 flex-grow">
                 {plan.features.map((feature, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <svg className="w-6 h-6 text-pink-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">{feature}</span>
+                    <div className="flex-shrink-0 mt-0.5">
+                      <Check className="w-5 h-5" style={{ color: '#22D3EE' }} strokeWidth={2.5} />
+                    </div>
+                    <span className="bg-clip-text text-transparent bg-[linear-gradient(180deg,_rgba(255,_255,_255,_0.60)_0%,_rgba(156,_163,_175,_0.60)_100%)] text-sm leading-relaxed">{feature}</span>
                   </li>
                 ))}
               </ul>
-              <a
-                href="/demo"
-                className={`block w-full text-center py-3 rounded-lg font-medium transition-all ${
-                  plan.popular
-                    ? 'btn-primary'
-                    : 'border-2 border-gray-300 text-gray-900 hover:border-pink-500 hover:text-pink-600 hover:bg-pink-50'
-                }`}
-              >
-                Get Started
-              </a>
+              <div className="mt-auto">
+                {plan.popular ? (
+                  <a
+                    href="/demo"
+                    className="relative inline-block overflow-hidden rounded-full p-[1.5px] w-full"
+                  >
+                    <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+                    <div className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black text-xs font-medium backdrop-blur-3xl">
+                      <span className="inline-flex rounded-full text-center group items-center w-full justify-center bg-gradient-to-tr from-zinc-300/20 via-purple-400/30 to-transparent dark:from-zinc-300/5 dark:via-purple-400/20 text-white border-input border-[1px] hover:bg-gradient-to-tr hover:from-zinc-300/30 hover:via-purple-400/40 hover:to-transparent dark:hover:from-zinc-300/10 dark:hover:via-purple-400/30 transition-all py-3.5 px-10 font-semibold">
+                        Get Started
+                      </span>
+                    </div>
+                  </a>
+                ) : (
+                  <a
+                    href="/demo"
+                    className="relative inline-block overflow-hidden rounded-full p-[1.5px] w-full"
+                  >
+                    <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,rgba(99,102,241,0.3)_0%,rgba(34,211,238,0.3)_50%,rgba(99,102,241,0.3)_100%)]" />
+                    <div className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-black text-xs font-medium backdrop-blur-3xl">
+                      <span className="inline-flex rounded-full text-center group items-center w-full justify-center bg-gradient-to-tr from-zinc-300/5 via-purple-400/10 to-transparent dark:from-zinc-300/5 dark:via-purple-400/10 text-white border border-white/10 hover:bg-gradient-to-tr hover:from-zinc-300/10 hover:via-purple-400/20 hover:to-transparent dark:hover:from-zinc-300/10 dark:hover:via-purple-400/20 transition-all py-3.5 px-10 font-semibold">
+                        Get Started
+                      </span>
+                    </div>
+                  </a>
+                )}
+              </div>
             </motion.div>
           ))}
         </div>

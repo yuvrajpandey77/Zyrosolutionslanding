@@ -40,7 +40,7 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white overflow-x-hidden">
       <Header />
-      <div className="pt-20">
+      <div className="pt-16">
         {/* Hero Section */}
         <section className="section-padding bg-gradient-to-br from-pink-50 to-yellow-50">
           <div className="container-custom max-w-4xl text-center">

@@ -15,7 +15,7 @@
   }
   
   body {
-    @apply bg-white text-text-body antialiased;
+    @apply bg-background text-text-primary antialiased;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
@@ -23,15 +23,16 @@
     width: 100%;
     margin: 0;
     padding: 0;
+    background-color: #000000;
   }
   
   h1, h2, h3, h4, h5, h6 {
     @apply text-text-primary font-semibold;
-    color: #0F172A;
+    color: #F9FAFB;
   }
   
   p {
-    color: #475569;
+    color: #9CA3AF;
   }
   
   span:not([class*="text-"]):not([class*="bg-"]) {
@@ -46,14 +47,14 @@
 
 @layer utilities {
   .btn-primary {
-    background: linear-gradient(to right, #EC4899, #EF4444);
+    background: linear-gradient(to right, #6366F1, #22D3EE);
     @apply text-white px-8 py-4 rounded-xl font-semibold;
     @apply transition-all duration-300 ease-out;
     @apply hover:translate-y-[-2px] hover:shadow-2xl;
     @apply active:translate-y-0 active:scale-[0.98];
-    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-pink-500;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background focus:ring-accent-primary;
     @apply cursor-pointer;
-    box-shadow: 0 10px 25px -5px rgba(236, 72, 153, 0.4), 0 4px 6px -2px rgba(239, 68, 68, 0.3);
+    box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4), 0 4px 6px -2px rgba(34, 211, 238, 0.3), 0 0 20px rgba(99, 102, 241, 0.2);
     position: relative;
     overflow: hidden;
   }
@@ -74,34 +75,35 @@
   }
   
   .btn-primary:hover {
-    background: linear-gradient(to right, #F472B6, #EC4899);
-    box-shadow: 0 15px 35px -5px rgba(236, 72, 153, 0.5), 0 6px 10px -2px rgba(239, 68, 68, 0.4);
+    background: linear-gradient(to right, #818CF8, #38BDF8);
+    box-shadow: 0 15px 35px -5px rgba(99, 102, 241, 0.5), 0 6px 10px -2px rgba(34, 211, 238, 0.4), 0 0 30px rgba(99, 102, 241, 0.3);
   }
   
   .card {
-    @apply bg-white rounded-xl p-8;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    @apply bg-card rounded-xl p-6;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
     @apply transition-all duration-300 ease-out;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: #0A0A0A;
   }
   
   .card-hover {
     @apply hover:translate-y-[-4px];
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.6), 0 4px 6px -2px rgba(0, 0, 0, 0.5), 0 0 20px rgba(99, 102, 241, 0.15), 0 0 40px rgba(34, 211, 238, 0.1);
   }
   
   .btn-secondary {
-    @apply border-2 border-gray-300 bg-white text-gray-900 px-8 py-4 rounded-xl font-semibold;
+    @apply border-2 border-accent-primary bg-transparent text-text-primary px-8 py-4 rounded-xl font-semibold;
     @apply transition-all duration-300 ease-out;
-    @apply hover:bg-pink-50 hover:border-pink-500 hover:text-pink-600 hover:translate-y-[-1px] hover:shadow-lg;
+    @apply hover:bg-accent-primary/10 hover:border-accent-secondary hover:text-accent-secondary hover:translate-y-[-1px] hover:shadow-lg;
     @apply active:translate-y-0 active:scale-[0.98];
-    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-pink-500;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background focus:ring-accent-primary;
     @apply cursor-pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 4px rgba(99, 102, 241, 0.2);
   }
   
   .btn-secondary:hover {
-    box-shadow: 0 8px 16px rgba(236, 72, 153, 0.15);
+    box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3), 0 0 20px rgba(34, 211, 238, 0.2);
   }
   
   .section-padding {
@@ -193,6 +195,19 @@
     from {
       width: 0%;
     }
+  }
+  
+  @keyframes grid {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-grid {
+    animation: grid 15s linear infinite;
   }
 }
 

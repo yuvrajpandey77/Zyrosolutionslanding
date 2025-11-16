@@ -8,27 +8,37 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        geist: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+      },
       colors: {
-        background: '#FFFFFF',
-        'background-dark': '#1E293B',
-        card: '#FFFFFF',
-        'card-dark': '#334155',
-        'text-primary': '#0F172A',
-        'text-primary-dark': '#FFFFFF',
-        'text-body': '#475569',
-        'text-body-dark': '#E2E8F0',
-        'text-muted': '#64748B',
-        'text-muted-dark': '#94A3B8',
-        accent: '#EC4899',
+        // Dark theme colors per requirements
+        background: '#050816', // Primary background (very dark blue/black)
+        'background-dark': '#111827', // Card/surface background (dark gray-blue)
+        card: '#111827', // Card background
+        'card-dark': '#1F2937',
+        'text-primary': '#F9FAFB', // Main text (almost white)
+        'text-primary-dark': '#F9FAFB',
+        'text-body': '#9CA3AF', // Secondary text (gray)
+        'text-body-dark': '#9CA3AF',
+        'text-muted': '#6B7280',
+        'text-muted-dark': '#6B7280',
+        // Accent colors
+        accent: '#6366F1', // Primary accent (indigo)
+        'accent-primary': '#6366F1', // Indigo
+        'accent-secondary': '#22D3EE', // Secondary accent (cyan/teal)
+        'accent-warning': '#F97316', // Warning/high attention (warm orange)
+        // Legacy colors for gradual migration
         'accent-red': '#EF4444',
         'accent-pink': '#F472B6',
         'accent-yellow': '#FEF3C7',
         'accent-pink-light': '#FCE7F3',
-        'cta-banner': '#FDF2F8',
+        'cta-banner': '#0F172A',
       },
       backgroundImage: {
-        'gradient-primary': 'linear-gradient(to right, #EC4899, #EF4444)',
-        'gradient-pink': 'linear-gradient(to right, #F472B6, #EC4899)',
+        'gradient-primary': 'linear-gradient(to right, #6366F1, #22D3EE)', // Indigo to cyan
+        'gradient-pink': 'linear-gradient(to right, #6366F1, #22D3EE)',
+        'gradient-hero': 'linear-gradient(135deg, #050816 0%, #1E1B4B 50%, #0C4A6E 100%)', // Dark gradient for hero
       },
     },
   },
